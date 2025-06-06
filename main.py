@@ -1,6 +1,4 @@
-import argparse
-from crew import run_crew, run_metadata_analysis, run_content_analysis, run_both_analyses, run_plagiarism_analysis
-from tools.title_meta_extractor import extract_title_description
+from crew import run_crew
 
 if __name__ == "__main__":
 
@@ -19,4 +17,3 @@ if __name__ == "__main__":
     print("\n=== Final Results ===")
     print("Results: ",result)
     print("\n✅ Analysis completed!")
-

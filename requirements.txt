@@ -1,0 +1,22 @@
+# CrewAI core
+crewai
+
+# Environment variable management
+python-dotenv
+
+# YAML parsing
+pyyaml
+
+# Web scraping
+beautifulsoup4
+requests
+
+# LLM support (Google Gemini via LangChain)
+langchain
+langchain-google-genai
+
+# Other utilities
+tqdm  # Optional for progress bars, if needed
+
+# Optional: Ensure compatibility with modern Python versions
+typing-extensions
