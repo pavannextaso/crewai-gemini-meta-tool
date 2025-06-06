@@ -54,7 +54,6 @@ def fetch_meta(url: str) -> str:
             },
             "status": "success"
         }
-        
         return json.dumps(metadata, indent=2)
         
     except Exception as e:

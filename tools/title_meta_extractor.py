@@ -23,7 +23,7 @@ def extract_title_description(url: str) -> str:
             "status": "success"
         }
         
-        return json.dumps(result, indent=2)
+        return json.dumps(result, indent=2, ensure_ascii=False)
         
     except Exception as e:
         error_response = {

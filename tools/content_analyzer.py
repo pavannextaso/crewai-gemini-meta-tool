@@ -6,7 +6,8 @@ import re
 from collections import Counter
 
 @tool
-def analyze_content(url: str) -> str:
+def analyze_content(url):
+    
     """Analyzes webpage content for SEO metrics and returns JSON formatted data."""
     try:
         res = requests.get(url, timeout=5)
@@ -69,7 +70,6 @@ def analyze_content(url: str) -> str:
             } for keyword, freq in top_keywords],
             "status": "success"
         }
-        
         return json.dumps(analysis, indent=2)
         
     except Exception as e:

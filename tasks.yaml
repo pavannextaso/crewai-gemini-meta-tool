@@ -1,0 +1,90 @@
+tasks:
+  - id: metadata_analysis
+    agent_id: meta_researcher
+    dynamic_input: true
+    description_template: |
+      Extract and analyze metadata from the website: {url}
+
+      Use the fetch_meta tool to extract:
+      - Basic metadata (title, description, keywords)
+      - Open Graph tags for social media
+      - Twitter Card data
+      - H1 tag information
+
+      Return the complete JSON data from the fetch_meta tool.
+
+      User request: {user_input}
+    expected_output: >
+      Complete JSON data containing website metadata including title, description, keywords, Open Graph, and Twitter Card information.
+
+  - id: content_analysis
+    agent_id: content_researcher
+    dynamic_input: true
+    description_template: |
+      Analyze the content structure and on-page SEO elements of the website: {url}
+
+      Use the analyze_content tool to examine:
+      - Content metrics (word count, readability)
+      - Heading structure (H1-H6 distribution)
+      - Image optimization (alt text coverage)
+      - Link analysis (internal vs external)
+      - Top keywords and keyword density
+
+      Return the complete JSON data from the analyze_content tool.
+
+      User request: {user_input}
+    expected_output: >
+      Complete JSON data containing content analysis including word count, heading structure, image metrics, link analysis, and keyword information.
+
+  - id: metadata_report
+    agent_id: meta_writer
+    description: |
+      Based on the metadata JSON data provided, create a focused report on metadata optimization:
+
+      **Report Structure:**
+      1. **Title Tag Analysis**: Evaluate length, keywords, and optimization
+      2. **Meta Description Review**: Check length, compelling copy, and CTR potential
+      3. **Keywords Assessment**: Analyze keyword presence and relevance
+      4. **Social Media Optimization**: Review Open Graph and Twitter Card setup
+      5. **Quick Recommendations**: 3-5 actionable metadata improvements
+
+      Keep the report concise and focused on metadata elements only.
+      Include specific character counts and optimization scores where available.
+    expected_output: >
+      A concise, focused report on website metadata with specific recommendations for title tags, meta descriptions, and social media optimization.
+
+  - id: seo_report
+    agent_id: seo_writer
+    description: |
+      Based on the content analysis JSON data provided, create a comprehensive on-page SEO report with detailed recommendations:
+
+      **Report Structure:**
+      1. **Content Quality Assessment**: Word count, readability, and content depth
+      2. **Heading Structure Analysis**: H1-H6 hierarchy and optimization opportunities
+      3. **Image SEO Review**: Alt text coverage and image optimization recommendations
+      4. **Internal Link Strategy**: Link distribution and internal linking opportunities
+      5. **Keyword Optimization**: Top keywords analysis and keyword strategy recommendations
+      6. **Technical On-Page Issues**: Identify and prioritize technical improvements
+      7. **Action Plan**: Prioritized list of 10+ specific recommendations with implementation steps
+
+      Provide detailed, actionable recommendations with priority levels (High/Medium/Low).
+      Include specific metrics and benchmarks for improvements.
+    expected_output: >
+      A comprehensive on-page SEO report with detailed analysis and prioritized action plan containing specific, actionable recommendations for content optimization.
+
+  - id: plagiarism_checker
+    agent_id: plagiarism_checker
+    dynamic_input: true
+    description_template: "Extract and analyze the content that are present elsewhere on webpages: {user_input}"
+    expected_output: A report highlighting percentage of plagiarism and sources
+
+  - id: title_meta_checker
+    agent_id: title_meta_checker
+    dynamic_input: true
+    description_template: "Extract and analysis the title and meta description of the webpages: {url}"
+    expected_output: A report will display title and meta description of webpages
+
+  - id: report_write
+    agent_id: meta_writer
+    description: Based on the metadata JSON data provided, create a focused report on metadata optimization.
+    expected_output: A concise, focused report on website metadata with specific recommendations for title tags, and meta descriptions.
